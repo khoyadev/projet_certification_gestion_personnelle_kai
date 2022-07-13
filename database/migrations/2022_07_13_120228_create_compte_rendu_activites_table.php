@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('compte_rendu_activites', function (Blueprint $table) {
             $table->id();
+            $table->String('titre_compte_rendu_activite');
+            $table->String('description_compte_rendu_activite');
+            $table->date('date_compte_rendu_activite');  
+            $table->foreignId('employee_id')->constrained();
+            $table->foreignId('projet_id')->constrained();
             $table->timestamps();
         });
     }

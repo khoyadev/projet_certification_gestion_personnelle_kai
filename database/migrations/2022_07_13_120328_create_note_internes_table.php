@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('note_internes', function (Blueprint $table) {
             $table->id();
+            $table->String('titre_note_internes');
+            $table->String('description_note_internes');
+            $table->date('date_note_internes');
             $table->timestamps();
         });
     }

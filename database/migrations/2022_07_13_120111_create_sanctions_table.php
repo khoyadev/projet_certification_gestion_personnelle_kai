@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('sanctions', function (Blueprint $table) {
             $table->id();
+            $table->String('titre_sanction');
+            $table->String('description_sanction');
+            $table->date('date_debut_sanction');
+            $table->date('date_fin_sanction');
+            
             $table->timestamps();
         });
     }

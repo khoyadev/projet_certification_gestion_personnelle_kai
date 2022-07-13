@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('contrats', function (Blueprint $table) {
             $table->id();
+            $table->enum('type_contrat', ['CDI', 'CDD', 'Stage', 'Prestation']);
+            $table->date('date_entree');
+            $table->date('date_sortie');
+            $table->String('salaire');
+
+            $table->foreignId('employee_id')->constrained();
             $table->timestamps();
         });
     }

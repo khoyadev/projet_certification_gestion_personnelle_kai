@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('conges', function (Blueprint $table) {
+        Schema::create('demande_conges', function (Blueprint $table) {
             $table->id();
+            $table->integer('nombre_jours_conges');
+            $table->integer('nombre_jours_par_mois');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('conges');
+        Schema::dropIfExists('demande_conges');
     }
 };

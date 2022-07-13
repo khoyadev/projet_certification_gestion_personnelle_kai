@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pointages', function (Blueprint $table) {
+        Schema::create('departement_note_interne', function (Blueprint $table) {
             $table->id();
-            $table->timestamp("heure_entree");
-            $table->timestamp("heure_sortie");
-            $table->String("notes");
-            $table->foreignId('employee_id')->constrained();
+            $table->foreignId('note_interne_id')->constrained();
+            $table->foreignId('departement_id')->constrained();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pointages');
+        Schema::dropIfExists('departement_note_interne');
     }
 };

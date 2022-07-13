@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pointages', function (Blueprint $table) {
+        Schema::create('type_absences', function (Blueprint $table) {
             $table->id();
-            $table->timestamp("heure_entree");
-            $table->timestamp("heure_sortie");
-            $table->String("notes");
-            $table->foreignId('employee_id')->constrained();
+            $table->String('titre');
+            $table->enum('type_absence', ['absence_justifiee', 'conge_legal']);
+            $table->String('couleur');
+            
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pointages');
+        Schema::dropIfExists('type_absences');
     }
 };
