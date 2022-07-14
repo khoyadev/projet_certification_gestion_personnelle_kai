@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('departement_note_interne', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('note_interne_id')->constrained();
-            $table->foreignId('departement_id')->constrained();
+            $table->foreignId('note_interne_id')->constrained()->onDelete('cascade');
+            $table->foreignId('departement_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

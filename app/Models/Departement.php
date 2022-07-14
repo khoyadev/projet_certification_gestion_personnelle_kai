@@ -2,10 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Employee;
+use App\Models\Note_interne;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Departement extends Model
 {
     use HasFactory;
+
+    public function employees(){
+        return $this->hasMany(Employee::class);
+    }
+
+    public function note_internes()
+    {
+        return $this->belongsToMany(Note_interne::class);
+    }
 }
