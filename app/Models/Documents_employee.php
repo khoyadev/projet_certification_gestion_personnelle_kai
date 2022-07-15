@@ -2,19 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\Employee;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Contrat extends Model
+class Documents_employee extends Model
 {
     use HasFactory;
 
     protected $fillable =[
-        'type_contrat',
-        'date_entree',
-        'date_sortie',
-        'salaire',
+        'fichier',
+        'date_expiration',
         'employee_id'
     ];
 

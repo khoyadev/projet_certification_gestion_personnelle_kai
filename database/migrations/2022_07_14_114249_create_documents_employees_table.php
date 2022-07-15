@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contrats', function (Blueprint $table) {
+        Schema::create('documents_employees', function (Blueprint $table) {
             $table->id();
-            $table->enum('type_contrat', ['CDI', 'CDD', 'Stage', 'Prestation']);
-            $table->date('date_entree');
-            $table->date('date_sortie')->nullable();
-            $table->String('salaire');
-
+            $table->String('fichier')->nullable();
+            $table->date('date_expiration')->nullable();
             $table->foreignId('employee_id')->constrained();
             $table->timestamps();
         });
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contrats');
+        Schema::dropIfExists('documents_employees');
     }
 };
